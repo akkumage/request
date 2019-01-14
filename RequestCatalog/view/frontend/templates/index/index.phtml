@@ -1,0 +1,186 @@
+<?php
+/**
+ * Copyright © 2015 pcnametagcommerce. All rights reserved.
+ */
+?>
+<?php
+/**
+ * {{controller}} {{action}} template
+ *
+ * @var $block \Pcnametag\RequestCatalog\Block\Index\Index
+ */
+$blockObj= $block->getLayout()->createBlock('\Magento\Directory\Block\Data');
+
+$helper = $this->helper('Pcnametag\RequestCatalog\Helper\Data');
+$baseUrl = $helper->getFormUrl();
+?>
+<!-- update content from RequestCatalog\view\frontend\templates\index\index.phtml -->
+
+<form class="form" data-mage-init='{"validation":{}}' id="requestcatalog" action="<?php echo $baseUrl;?>requestcatalog/index/save" method="post">
+	<fieldset class="fieldset">
+		<div class="field firstname required">
+			<!--label class="label" for="name"><span>First Name</span></label-->
+			<div class="control">
+				<input name="firstname" id="firstname" placeholder="First Name *" title="firstname" class="input-text" data-validate="{required:true}" type="text">
+			</div>
+		</div>
+		
+		<div class="field lastname required">
+			<!--label class="label" for="name"><span>Last Name</span></label-->
+			<div class="control">
+				<input id="lastname" name="lastname" placeholder="Last Name *" data-validate="{required:true}"  title="lastname" class="input-text" type="text"/>
+			</div>
+		</div>
+		
+		<div class="field organisation required">
+			<!--label class="label" for="name"><span>Organisation</span></label-->
+			<div class="control">
+				<input id="organisation" name="organisation" placeholder="Organisation *" data-validate="{required:true}"  title="organisation" class="input-text"  type="text"/>
+			</div>
+		</div>
+		<div class="field organisation required">
+			<!--label class="label" for="name"><span>Which of the following most closely matches your current job title?</span></label-->
+			<div class="control">
+				<select id="jobtitle" data-validate="{required:true}"  name="jobtitle" class="field select medium">
+					<option value="" selected="selected">Which of the following most closely matches your current job title? *</option>
+					<option value="Administrator or Controller">Administrator or Controller</option>
+					<option value="Board Member">Board Member</option>
+					<option value="Individual">	Individual</option>
+					<option value="Manager">Manager</option>
+					<option value="Marketing">Marketing</option>
+					<option value="Meeting/Event Planner">Meeting/Event Planner</option>
+					<option value="Owner">Owner</option>
+					<option value="Purchasing">Purchasing</option>
+					<option value="Volunteer">Volunteer</option>
+					<option value="Other">Other</option>
+				</select>
+			</div>
+		</div>
+		
+		<div class="field customertype width-auto required">
+			<label class="label"><span>Are You...</span></label>
+			<div class="control">
+				<input id="customertype" data-validate="{required:true}" name="customertype" title="customertype" class="input-text" value="A Returning/Existing Customer - ordered through pc/nametag in the past."  type="radio"/>
+				<label class="label" for="name"><span>A Returning/Existing Customer - ordered through pc/nametag in the past.</span></label>
+				</br>
+				<input id="customertype1" data-validate="{required:true}" name="customertype" title="customertype" class="input-text" value="A New Customer - never ordered through pc/nametag"  type="radio"/>
+				<label class="label" for="name"><span>A New Customer - never ordered through pc/nametag</span></label>
+			</div>
+		</div>
+		
+		<div class="field organisation width-auto">
+			<div class="control">
+				<input id="paper_catalog" name="paper_catalog" class="input-text"  type="checkbox" value="Sign Me Up For Your Paper Catalog"/>
+				<label class="label" for="name"><span>Sign Me Up For Your Paper Catalog</span></label>
+				</br>
+				<input id="email_offers" name="email_offers" class="input-text"  type="checkbox" value="Sign Me Up For Your Exclusive Email Offers"/>
+				<label class="label" for="name"><span>Sign Me Up For Your Exclusive Email Offers</span></label>
+			</div>
+		</div>
+		<!--label class="label"><span>Address</span></label-->
+		<div class="field street required">
+			<!--label class="label" for="name"><span>Street</span></label-->
+			<div class="control">
+				<input id="street" name="street" placeholder="Street Address *" data-validate="{required:true}"  title="street" class="input-text"  type="text"/>
+			</div>
+		</div>
+		
+		<div class="field address required">
+			<!--label class="label" for="name"><span>Address Line 2</span></label-->
+			<div class="control">
+				<input id="address_line2"  placeholder="Address Line 2 *" data-validate="{required:true}" name="address_line2" title="Address Line 2" class="input-text"  type="text"/>
+			</div>
+		</div>
+		
+		<div class="field City required">
+			<!--label class="label" for="name"><span>City</span></label-->
+			<div class="control">
+				<input id="city" name="city" placeholder="City *" data-validate="{required:true}"  title="City" class="input-text"  type="text"/>
+			</div>
+		</div>
+		
+		<div class="field state required">
+			<!--label class="label" for="name"><span>State</span></label-->
+			<div class="control">
+				<input id="state" name="state" placeholder="State *" data-validate="{required:true}"  title="State" class="input-text"  type="text"/>
+			</div>
+		</div>
+		
+		<div class="field zipcode required">
+			<!--label class="label" for="name"><span>Postal / Zip Code</span></label-->
+			<div class="control">
+				<input id="zipcode" name="zipcode" placeholder="Postal / Zip Code *" data-validate="{required:true}"  title="Postal / Zip Code" class="input-text"  type="text"/>
+			</div>
+		</div>
+		
+		<div class="field country required">
+			<!--label class="label"><span>Country</span></label-->
+			<?php echo $blockObj->getCountryHtmlSelect(); ?>
+		</div>
+		
+		<div class="field phone required">
+			<!--label class="label" for="phone"><span>Phone</span></label-->
+			<div class="control">
+				<input id="phone" name="phone" placeholder="Phone *" data-validate="{required:true}"  title="phone" class="input-text"  type="text"/>
+			</div>
+		</div>
+		
+		<div class="field email required">
+			<!--label class="label" for="email"><span>Email</span></label-->
+			<div class="control">
+				<input id="email" name="email" placeholder="Email *" data-validate="{required:true}"  title="email" class="input-text email"  type="text"/>
+			</div>
+		</div>
+		<!--label class="label"><span>Name of event: </span></label-->
+		<div class="field event required">
+			<!--label class="label" for="event"><span>Event</span></label-->
+			<div class="control">
+				<input id="event" name="event" placeholder="Name of event: *" data-validate="{required:true}"  title="event" class="input-text"  type="text"/>
+			</div>
+		</div>
+		
+		<div class="field date required">
+			<!--label class="label" for="date"><span>Date</span></label-->
+			<div class="control">
+				<input id="datepicker" placeholder="Please Select Date *" data-validate="{required:true}" name="date" title="date" class="input-text"  type="text"/>
+                <script>
+					 require([
+						  "jquery",
+						  "mage/calendar"
+					 ], function($){
+						 $("#datepicker").calendar({
+							  buttonText:"<?php echo __('Select Date') ?>",
+						 });
+					   });
+				</script>
+				
+			</div>
+		</div>
+		
+		<div class="field attendees">
+			<!--label class="label" for="attendees"><span>Approximate number of attendees: </span></label-->
+			<div class="control">
+				<input id="attendees" name="attendees" placeholder="Approximate number of attendees: " title="attendees" class="input-text"  type="text"/>
+			</div>
+		</div>
+		
+		<div class="field meetings required">
+			<label class="label"><span>Do you plan multiple meetings in an average year?</span></label>
+			<div class="control">
+				<input id="meetings" data-validate="{required:true}" name="meetings" title="meetings" class="input-text" value="Yes"  type="radio"/>
+				<label class="label" for="name"><span>Yes</span></label>
+				</br>
+				<input id="meetings1" data-validate="{required:true}" name="meetings" title="meetings" class="input-text" value="No"  type="radio"/>
+				<label class="label" for="name"><span>No</span></label>
+			</div>
+		</div>
+		
+	</fieldset>
+	<div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" title="Submit" class="action submit primary">
+                <span>Submit</span>
+            </button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,34 @@
+<!--@subject Request Catalog @-->
+<!--@vars {
+"template config_path=\"design\/email\/footer_template\"":"Email Footer Template",
+"template config_path=\"design\/email\/header_template\"":"Email Header Template"
+} @-->
+{{template config_path="design/email/header_template"}} 
+<table>
+	<tr class="email-intro">
+		<td>
+			<p class="greeting">Name: {{trans "%myname" myname=$data.myname}}</p> 
+			<p class="greeting">E-mail: {{trans "%myemail" myemail=$data.myemail}}</p>
+			<p class="greeting">organisation:{{trans "%organisation" organisation=$data.organisation}}</p>
+			<p class="greeting">Job Title: {{trans "%jobtitle" jobtitle=$data.jobtitle}}</p>
+			<?php if(!empty($data.customertype)){ ?>
+			<p class="greeting">{{trans "%customertype" customertype=$data.customertype}}</p>
+			<?php } ?>
+			<p class="greeting">Address Line: {{trans "%street" street=$data.street}}</p>
+			<p class="greeting">Address Line 2: {{trans "%address_line2" address_line2=$data.address_line2}}</p>
+			<p class="greeting">City: {{trans "%city" city=$data.city}}</p>
+			<p class="greeting">State: {{trans "%state" state=$data.state}}</p>
+			<p class="greeting">Postcode: {{trans "%zipcode" zipcode=$data.zipcode}}</p>
+			<p class="greeting">Country: {{trans "%country_id" country_id=$data.country_id}}</p>
+			<p class="greeting">Phone: {{trans "%phone" phone=$data.phone}}</p>
+			<p class="greeting">Date: {{trans "%date" date=$data.date}}</p>
+			<p class="greeting">Approximate number of attendees: {{trans "%attendees" attendees=$data.attendees}}</p>
+			<?php
+			if(!empty($data.meetings)){
+				?>
+			<p class="greeting">Do you plan multiple meetings in an average year?: {{trans "%meetings" meetings=$data.meetings}}</p>
+			<?php } ?>
+		 </td>
+	</tr>
+</table>
+{{template config_path="design/email/footer_template"}}

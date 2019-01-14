@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Pcnametag. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="Pcnametag_RequestCatalog::pcnametag_index_index" title="Request Catalog" module="Pcnametag_RequestCatalog"  sortOrder="10" dependsOnModule="Pcnametag_RequestCatalog" action="requestcatalog/index/index" resource="Pcnametag_RequestCatalog::pcnametag_index_index" parent="Pcnametag_Fcebquote::pcnametag"/>
+<!--AddMenu-->
+    </menu>
+</config>
